@@ -1,0 +1,313 @@
+﻿<Window x:Class="Foxik_Assistant.UserData"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Foxik_Assistant"
+        xmlns:userControll="clr-namespace:Foxik_Assistant.UserControl"
+        mc:Ignorable="d" Width="1200" SizeToContent="Height">
+    <Grid>
+        <StackPanel>
+            <!--Основные данные-->
+            <GroupBox Header="Основные данные и социальный статус:" Margin="5,5,5,5" FontWeight="Bold" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.45*"/>
+                        <ColumnDefinition Width="0.5*"/>
+                        <ColumnDefinition Width="0.35*"/>
+                        <ColumnDefinition Width="0.25*"/>
+                        <ColumnDefinition Width="0.3*"/>
+                    </Grid.ColumnDefinitions>
+
+
+                    <GroupBox Header="Имя игрока" FontWeight="Normal" Margin="0,0,8,0">
+                        <Grid>
+                            <TextBox FontSize="14" Margin="5,0,0,0" FontWeight="Normal"/>
+                        </Grid>
+                    </GroupBox>
+
+                    <GroupBox Header="ФИО" FontWeight="Normal" MinWidth="300" Grid.Column="1" Margin="0,0,8,0">
+                        <Grid>
+                            <TextBox FontSize="14" Margin="5,0,0,0" FontWeight="Normal"/>
+                        </Grid>
+                    </GroupBox>
+
+                    <GroupBox Header="Пол" FontWeight="Normal" MinWidth="150" Grid.Column="2" Margin="0,0,8,0">
+                        <Grid>
+                            <ComboBox Margin="5,0,0,0" BorderBrush="{x:Null}" FontWeight="Normal">
+                                <ListBoxItem Content="Мужчина"/>
+                                <ListBoxItem Content="Женщина"/>
+                            </ComboBox>
+                        </Grid>
+                    </GroupBox>
+
+                    <GroupBox Header="Возраст" FontWeight="Normal" MinWidth="80" Grid.Column="3" Margin="0,0,8,0" Grid.Row="1">
+                        <Grid>
+                            <TextBox FontSize="14" Margin="5,0,0,0" FontWeight="Normal"/>
+                        </Grid>
+                    </GroupBox>
+
+                    <GroupBox Header="Дата рождения" FontWeight="Normal" Grid.Column="5">
+                        <Grid>
+                            <TextBox FontSize="14" Margin="5,0,0,0" FontWeight="Normal"/>
+                        </Grid>
+                    </GroupBox>
+
+                    <GroupBox Header="Семейное положение" FontWeight="Normal" MinWidth="150" Margin="0,0,8,0" Grid.Row="1" Grid.Column="2">
+                        <Grid>
+                            <ComboBox Margin="5,0,0,0" BorderBrush="{x:Null}" FontWeight="Normal">
+                                <ListBoxItem Content="Холост"/>
+                                <ListBoxItem Content="Замужем"/>
+                                <ListBoxItem Content="Женат"/>
+                            </ComboBox>
+                        </Grid>
+                    </GroupBox>
+
+                    <GroupBox Header="Профессия" FontWeight="Normal" MinWidth="150" Margin="0,0,8,0" Grid.Row="1" Grid.Column="1">
+                        <Grid>
+                            <TextBox FontSize="14" Margin="5,0,0,0" FontWeight="Normal"/>
+                        </Grid>
+                    </GroupBox>
+
+                    <GroupBox Header=" Религиозная принадлежность" FontWeight="Normal" MinWidth="150" Margin="0,0,8,0" Grid.Row="1">
+                        <Grid>
+                            <ComboBox Margin="5,0,0,0" BorderBrush="{x:Null}" FontWeight="Normal">
+                                <ListBoxItem Content="Атеист"/>
+                                <ListBoxItem Content="Православный"/>
+                                <ListBoxItem Content="Католик"/>
+                                <ListBoxItem Content="Ислам"/>
+                                <ListBoxItem Content="Не указано"/>
+                            </ComboBox>
+                        </Grid>
+                    </GroupBox>
+
+                    <GroupBox Header="Образование" FontWeight="Normal" MinWidth="150" Margin="0,0,8,0" Grid.Column="3">
+                        <Grid>
+                            <ComboBox Margin="5,0,0,0" BorderBrush="{x:Null}" FontWeight="Normal">
+                                <ListBoxItem Content="Начальное"/>
+                                <ListBoxItem Content="Среднее"/>
+                                <ListBoxItem Content="Высшее"/>
+                                <ListBoxItem Content="Другое"/>
+                            </ComboBox>
+                        </Grid>
+                    </GroupBox>
+
+                    <GroupBox Header="Национальность" FontWeight="Normal" Grid.Column="4" Grid.Row="1" Margin="0,0,5,0">
+                        <Grid>
+                            <TextBox FontSize="14" Margin="5,0,0,0" FontWeight="Normal"/>
+                        </Grid>
+                    </GroupBox>
+
+                </Grid>
+            </GroupBox>
+
+            <!--Темперамент и характер-->
+            <GroupBox Header="Темперамент и характер:" Margin="5,0,5,5" FontWeight="Bold" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.5*"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <GroupBox Grid.Column="0" Header="Тип темперамента:" FontWeight="Normal" Margin="5,5,5,5" Padding="0,10,0,10">
+                        <ComboBox BorderBrush="White" Margin="5,5,5,5">
+                            <ListBoxItem Content="Холерик"/>
+                            <ListBoxItem Content="Сангвиник"/>
+                            <ListBoxItem Content="Меланхолик"/>
+                            <ListBoxItem Content="Флегматик"/>
+                        </ComboBox>
+                    </GroupBox>
+
+                    <GroupBox Grid.Column="1" Header="Особености характера:" FontWeight="Normal" Margin="0,5,5,5" ToolTip="*Выберите 3-5 характерных черт из предложенного списка">
+                        <Grid>
+                            <WrapPanel Orientation="Vertical" MaxHeight="52">
+                                <CheckBox Content="Надежность" Grid.Column="0" Margin="7,7,0,0" HorizontalAlignment="Left" Width="70"/>
+                                <CheckBox Content="Добросовестность" Grid.Column="0" Margin="7,7,0,0"/>
+                                <CheckBox Content="Пунктуальность" Grid.Column="0" HorizontalAlignment="Left" Margin="-40,7,0,0"/>
+                                <CheckBox Content="Ответственность" Grid.Column="0" HorizontalAlignment="Left" Margin="7,7,0,0"/>
+                                <CheckBox Content="Решительность" Grid.Column="0" HorizontalAlignment="Left" Margin="-43,7,0,0"/>
+                                <CheckBox Content="Эмпатия" Grid.Column="0" HorizontalAlignment="Left" Margin="7,7,0,0"/>
+                                <CheckBox Content="Оптимизм" Grid.Column="0" HorizontalAlignment="Left" Margin="-5,7,0,0"/>
+                                <CheckBox Content="Пессимизм" Grid.Column="0" HorizontalAlignment="Left" Margin="7,7,0,0"/>
+                                <CheckBox Content="Рисковый" Grid.Column="0" HorizontalAlignment="Left" Margin="-7,7,0,0"/>
+                            </WrapPanel>
+                        </Grid>
+                    </GroupBox>
+                </Grid>
+            </GroupBox>
+
+
+            <!--Психологические особенности-->
+            <GroupBox Header="Психологические особенности:" FontWeight="Bold" Margin="5,0,5,0" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch">
+                <Grid>
+                    <DockPanel>
+                        <GroupBox Header="Экстроверсия / Интроверсия" Margin="0,-3,0,0" MaxWidth="300" VerticalContentAlignment="Stretch" FontWeight="Normal" HorizontalAlignment="Left" MinWidth="300" MinHeight="50" Tag="" ToolTip="*Насколько человек предпочитает общение с людьми?">
+                            <Grid>
+                                <RadioButton Content="Экстраверсия" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Margin="12,0,0,0"/>
+                                <RadioButton Content="Интроверсия" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Margin="77,0,10,0" HorizontalAlignment="Right"/>
+                            </Grid>
+                        </GroupBox>
+
+                        <GroupBox Header="Уровень эмоциональной стабильности" Grid.Column="1" FontWeight="Normal" ToolTip="*Насколько человек способен контролировать свои эмоции?" MinWidth="500" Margin="5,0,5,0">
+                            <Grid>
+                                <StackPanel Orientation="Vertical">
+                                    <Grid>
+                                        <Label Grid.Row="0" Margin="0,0,0,-10" HorizontalAlignment="Left">Плохой</Label>
+                                        <Label Grid.Row="0" Margin="0,0,0,-10" HorizontalAlignment="Center" FontWeight="Bold">0</Label>
+                                        <Label Grid.Row="0" Margin="0,0,0,-10" HorizontalAlignment="Right">Хороший</Label>
+                                    </Grid>
+
+                                    <Slider Maximum="5" Margin="10,10,10,5" Grid.Row="1" LargeChange="5" Minimum="-5" TickPlacement="BottomRight" IsSnapToTickEnabled="True"/>
+                                </StackPanel>
+                            </Grid>
+
+                        </GroupBox>
+
+                        <GroupBox Header="Эмоциональный диапазон" Grid.Column="2" FontWeight="Normal" ToolTip="*Насколько человек способен демонстрировать широкий спектр эмоций? (Примеры: радость, грусть, гнев, страх, удивление, стыд)">
+                            <Grid>
+                                <StackPanel Orientation="Vertical">
+                                    <Grid>
+                                        <Label Grid.Row="0" Margin="0,0,0,-10" HorizontalAlignment="Left">Плохой</Label>
+                                        <Label Grid.Row="0" Margin="0,0,0,-10" HorizontalAlignment="Center" FontWeight="Bold">0</Label>
+                                        <Label Grid.Row="0" Margin="0,0,0,-10" HorizontalAlignment="Right">Хороший</Label>
+                                    </Grid>
+
+                                    <Slider Maximum="5" Margin="10,10,10,5" Grid.Row="1" LargeChange="5" Minimum="-5" TickPlacement="BottomRight" IsSnapToTickEnabled="True"/>
+                                </StackPanel>
+
+                                
+
+                                
+                            </Grid>
+
+                        </GroupBox>
+                    </DockPanel>
+
+
+                </Grid>
+            </GroupBox>
+
+
+            <!--Поведение и навыки-->
+            <GroupBox Margin="5,0,5,0" Header="Поведение и навыки:" FontWeight="Bold" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <GroupBox Header="Темп речи" FontWeight="Normal">
+                        <ComboBox Margin="5,10,5,10" MinHeight="22" MaxHeight="22">
+                            <ListBoxItem Content="Быстрый"/>
+                            <ListBoxItem Content="Нормальный"/>
+                            <ListBoxItem Content="Медленный"/>
+
+                        </ComboBox>
+                    </GroupBox>
+
+                    <GroupBox Header="Групповое поведение" FontWeight="Normal" Grid.Column="1" Margin="5,0,5,0">
+                        <ComboBox Margin="5,10,5,10" MinHeight="22" MaxHeight="22">
+                            <ListBoxItem Content="Инициативный"/>
+                            <ListBoxItem Content="Лидерский тип"/>
+                            <ListBoxItem Content="Пассивный наблюдатель"/>
+                            <ListBoxItem Content="Конфликтующий"/>
+                        </ComboBox>
+                    </GroupBox>
+
+                    <GroupBox Header="Способность к концентрации" Grid.Column="2" FontWeight="Normal" ToolTip="*Насколько легко человеку отвлекаться?">
+                        <Grid>
+                            <StackPanel Orientation="Vertical">
+                                <Grid>
+                                    <Label Grid.Row="0" Margin="0,0,0,-10" HorizontalAlignment="Left">Плохая</Label>
+                                    <Label Grid.Row="0" Margin="0,0,0,-10" HorizontalAlignment="Center" FontWeight="Bold">0</Label>
+                                    <Label Grid.Row="0" Margin="0,0,0,-10" HorizontalAlignment="Right">Хорошая</Label>
+                                </Grid>
+
+                                <Slider Maximum="2" Margin="10,10,10,5" Grid.Row="1" LargeChange="2" Minimum="-2" TickPlacement="BottomRight" IsSnapToTickEnabled="True"/>
+                            </StackPanel>
+                        </Grid>
+                    </GroupBox>
+
+                    <GroupBox Header="Групповое поведение" FontWeight="Normal" Grid.Column="3" Margin="5,0,5,0" ToolTip="*Как человек взаимодействует с другими людьми?">
+                        <ComboBox Margin="5,10,5,10" MaxHeight="22" MinHeight="22">
+                            <ListBoxItem Content="Вежливый"/>
+                            <ListBoxItem Content="Общительный"/>
+                            <ListBoxItem Content="Замкнутый"/>
+                        </ComboBox>
+                    </GroupBox>
+
+                </Grid>
+            </GroupBox>
+
+            <!--Самооценка и стиль мышления-->
+            <GroupBox Header="Самооценка и стиль мышления:" FontWeight="Bold" Margin="5,0,5,0">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <GroupBox Header="Уровень самооценки" FontWeight="Normal" ToolTip="*Насколько человек способен контролировать свои эмоции?" MinWidth="500" Margin="5,0,5,0">
+                        <Grid>
+                            <StackPanel Orientation="Vertical">
+                                <Grid>
+                                    <Label Grid.Row="0" Margin="0,0,0,-10" HorizontalAlignment="Left" VerticalAlignment="Top">Плохая</Label>
+                                    <Label Grid.Row="0" Margin="0,0,0,-10" HorizontalAlignment="Center" FontWeight="Bold">0</Label>
+                                    <Label Grid.Row="0" Margin="0,0,0,-10" HorizontalAlignment="Right">Хорошая</Label>
+                                </Grid>
+                                <Slider Maximum="3" Margin="10,10,10,5" Grid.Row="1" Minimum="-3" TickPlacement="BottomRight" IsSnapToTickEnabled="True" VerticalContentAlignment="Center"/>
+                            </StackPanel>
+                        </Grid>
+                    </GroupBox>
+
+                    <GroupBox Header="Стиль мышления" FontWeight="Normal" Grid.Column="1" Margin="5,0,5,0">
+                        <ComboBox Margin="5,10,5,10" MinHeight="22" MaxHeight="22">
+                            <ListBoxItem Content="Аналитический"/>
+                            <ListBoxItem Content="Интуитивный"/>
+                            <ListBoxItem Content="Творческий"/>
+                        </ComboBox>
+                    </GroupBox>
+                </Grid>
+            </GroupBox>
+
+            <!--Дополнительная информация-->
+            <GroupBox Header="Дополнительная информация" FontWeight="Bold" Margin="5,0,5,0" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Height="264">
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <Grid>
+                        <StackPanel Orientation="Vertical">
+                            <GroupBox Header="Хобби" FontWeight="Normal">
+                                <Grid>
+                                    <TextBox Margin="5,10,5,10" FontSize="14" TextWrapping="Wrap" AcceptsReturn="True" MinHeight="41.24" MaxHeight="164.96"/>
+                                </Grid>
+
+                            </GroupBox>
+
+                            <GroupBox Header="Цели и мотивация:" FontWeight="Normal" ToolTip="*Какие цели преследует человек, что его мотивирует?">
+                                <Grid>
+                                    <TextBox Margin="5,10,5,10" FontSize="14" TextWrapping="Wrap" AcceptsReturn="True" MinHeight="41.24" MaxHeight="164.96"/>
+                                </Grid>
+
+                            </GroupBox>
+
+                            <GroupBox Header="Ссылки:" FontWeight="Normal">
+                                <Grid HorizontalAlignment="Left">
+                                    <StackPanel x:Name="Limks" Orientation="Horizontal" FlowDirection="RightToLeft">
+                                        <Button MinWidth="50" MaxWidth="50" MinHeight="50" MaxHeight="50" Content="+" FontWeight="Bold" FontSize="18" Click="Button_Click" BorderBrush="{x:Null}" Background="{x:Null}"/>
+                                    </StackPanel>
+                                </Grid>
+                            </GroupBox>
+                        </StackPanel>
+                    </Grid>
+                </ScrollViewer>
+            </GroupBox>
+            
+        </StackPanel>
+    </Grid>
+</Window>
