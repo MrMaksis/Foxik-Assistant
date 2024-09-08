@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -10,19 +11,25 @@ namespace Foxik_Assistant.UserControl
 {
     public enum IconType
     {
-        Discord, Steam, Telegram, Vk, VRChat
+        None,
+        Discord, 
+        Steam, 
+        Telegram, 
+        Vk, 
+        VRChat
     }
     public partial class UserLink
     {
         public string Url { get; set; }
         public Action<UserLink> OnDelete { get; set; }
 
-        public UserLink(Action<UserLink> onDelete, string url)
+        public UserLink(Action<UserLink> onDelete, string url, string iconType)
         {
             InitializeComponent();
 
             OnDelete = onDelete;
             Url = url;
+            ChangeImage(iconType);
         }
 
         private void Image_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -30,13 +37,32 @@ namespace Foxik_Assistant.UserControl
             Process.Start(Url);
         }
 
-        public void ChangeImage(IconType type)
+        public void ChangeImage(string stringType)
         {
             ImageSource source = new BitmapImage();
-            Uri uri = null;
+            IconType type = IconType.None;
 
 
-            uri = new Uri(GetImagePathFrom(type));
+            switch (stringType)
+            {
+                case "discord":
+                    type = IconType.Discord;
+                    break;
+                case "steam":
+                    type = IconType.Steam;
+                    break;
+                case "telegram":
+                    type = IconType.Telegram;
+                    break;
+                case "vk":
+                    type = IconType.Vk;
+                    break;
+                case "vr-chat":
+                    type = IconType.VRChat;
+                    break;
+            }
+
+            Uri uri = new Uri(GetImagePathFrom(type));
             UserLinkImage.Source = new BitmapImage(uri);
         }
 

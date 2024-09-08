@@ -14,7 +14,7 @@ namespace Foxik_Assistant
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Action<string> onCreate = (url) =>
+            Action<string, string> onCreate = (url, iconType) =>
             {
                 if (url == string.Empty)
                 {
@@ -27,7 +27,7 @@ namespace Foxik_Assistant
                         Limks.Children.Remove(s);
                         s = null;
                     };
-                    UserLink userLink = new UserLink(onDelete, url);
+                    UserLink userLink = new UserLink(onDelete, url, iconType);
                     Limks.Children.Add(userLink);
                 }
 
